@@ -3,7 +3,7 @@ import { type Author } from "./author";
 export type Post = {
   slug: string;
   title: string;
-  date: Date | string | string[];
+  date: string | string[];
   image: string;
   featuredImage: string;
   author: Author;
