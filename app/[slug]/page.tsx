@@ -56,15 +56,12 @@ type Params = {
   };
 };
 
-export function generateMetadata({ params }: Params): Metadata {
-  const post = {
-    title: "Peable Newsroom",
-    content: "The latest news from Peable.",
-    ogImage: {
-      url: "",
-    },
-  };
-
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
+  const post = await getData(params.slug);
   if (!post) {
     return notFound();
   }
@@ -76,7 +73,7 @@ export function generateMetadata({ params }: Params): Metadata {
     description: post.content ? post.content.slice(0, 100) + "..." : "",
     openGraph: {
       title,
-      images: [post.ogImage.url],
+      images: [post.image],
     },
   };
 }
