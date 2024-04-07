@@ -26,6 +26,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData(params.slug);
 
   metadata.title = data?.title + " - Peable Newsroom" || "Peable Newsroom";
+  metadata.description = data?.content
+    ? data.content.slice(0, 100) + "..."
+    : "";
 
   // Ensure that metadata.openGraph is an object before assigning the images property
   if (!metadata.openGraph) {
