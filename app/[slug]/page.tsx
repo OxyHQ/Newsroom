@@ -60,7 +60,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Metadata {
+}): Promise<Metadata> {
   const post = await getData(params.slug);
   if (!post) {
     return notFound();
@@ -68,12 +68,12 @@ export async function generateMetadata({
 
   const title = `${post.title} | Peable Newsroom`;
 
-  return {
+  return Promise.resolve({
     title,
     description: post.content ? post.content.slice(0, 100) + "..." : "",
     openGraph: {
       title,
       images: [post.image],
     },
-  };
+  });
 }
