@@ -23,10 +23,10 @@ export function PostPreview({
 }: Props) {
   return (
     <div>
-      <div className="mb-5">
+      <div className="mb-4">
         <Image slug={slug} title={title} src={image} />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
+      <h3 className="text-2xl mb-2 leading-snug font-semibold">
         <Link
           as={`/article/${slug}`}
           href="/article/[slug]"
@@ -35,10 +35,10 @@ export function PostPreview({
           {title}
         </Link>
       </h3>
-      <div className="text-lg mb-4">
+      <div className="text-sm mb-2">
         <DateFormatter dateString={date} />
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <p className="text-sm leading-relaxed mb-2">{excerpt}</p>
     </div>
   );
 }

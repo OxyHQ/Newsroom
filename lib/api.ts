@@ -3,8 +3,16 @@ import { Post } from "@/interfaces/post";
 // Function to get post slugs
 export async function getPosts(): Promise<Post[]> {
   // Fetch the post slugs from the API
+  const now = new Date();
+  const timeUntilMinutes = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    now.getHours(),
+    now.getMinutes()
+  );
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/posts/?t=${new Date().getTime()}`
+    `https://peable-website-notion-server.vercel.app/api/blog/posts/?t=${timeUntilMinutes.getTime()}`
   );
   const posts = await res.json();
   return posts;
@@ -12,9 +20,17 @@ export async function getPosts(): Promise<Post[]> {
 
 // Function to get post by slug
 export async function getPostBySlug(slug: string): Promise<Post> {
+  const now = new Date();
+  const timeUntilMinutes = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    now.getHours(),
+    now.getMinutes()
+  );
   // Fetch the post data from the API
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${new Date().getTime()}`
+    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${timeUntilMinutes.getTime()}`
   );
   const postData = await res.json();
   return postData;
