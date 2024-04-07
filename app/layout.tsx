@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Peable Newsroom",
-  description: "",
+  description: "The latest news from Peable.",
 };
 
 export default function RootLayout({
