@@ -23,7 +23,7 @@ const coverImage = ({ title, src, slug }: Props) => {
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]" aria-label={title}>
+        <Link as={`/article/${slug}`} href="/article/[slug]" aria-label={title}>
           {image}
         </Link>
       ) : (
