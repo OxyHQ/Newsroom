@@ -1,9 +1,13 @@
 import { type Author } from "./author";
 
+type Date = {
+  default: string;
+};
+
 export type Post = {
   slug: string;
   title: string;
-  date: string[];
+  date: Date;
   image: string;
   featuredImage: string;
   author: Author;
