@@ -1,5 +1,3 @@
-import { CMS_NAME } from "@/lib/constants";
-
 export function Intro() {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
@@ -14,7 +12,7 @@ export function Intro() {
         >
           Next.js
         </a>{" "}
-        and {CMS_NAME}.
+        and.
       </h4>
     </section>
   );
