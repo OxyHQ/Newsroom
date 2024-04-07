@@ -9,9 +9,17 @@ import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
 import { describe } from "node:test";
 
+async function downloadImage(imageUrl, imageFileName) {
+  const response = await fetch(imageUrl);
+  const buffer = await response.buffer();
+  fs.writeFile(path.join(__dirname, imageFileName), buffer, () =>
+    console.log("Image downloaded and saved as", imageFileName)
+  );
+}
+
 async function getData(slug: string) {
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}`
+    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${new Date().getTime()}`
   );
 
   if (!res.ok) {
