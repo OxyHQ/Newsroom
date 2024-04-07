@@ -24,6 +24,8 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 export async function getAllPosts(): Promise<Post[]> {
   const posts = await getPosts();
   // Sort posts by date in descending order
-  posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  posts.sort((post1, post2) =>
+    post1?.date?.default > post2?.date?.default ? -1 : 1
+  );
   return posts;
 }

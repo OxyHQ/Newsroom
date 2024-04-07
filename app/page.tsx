@@ -17,7 +17,7 @@ export default async function Index() {
         <Intro />
         <HeroPost
           title={heroPost.title}
-          image={heroPost.image}
+          image={heroPost.featuredImage}
           date={heroPost.date.default}
           author={heroPost.author}
           slug={heroPost.slug}
