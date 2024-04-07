@@ -1,17 +1,17 @@
 import Avatar from "./avatar";
-import CoverImage from "./cover-image";
+import Image from "./cover-image";
 import DateFormatter from "./date-formatter";
 import { PostTitle } from "@/app/_components/post-title";
 import { type Author } from "@/interfaces/author";
 
 type Props = {
   title: string;
-  coverImage: string;
+  image: string;
   date: string;
   author: Author;
 };
 
-export function PostHeader({ title, coverImage, date, author }: Props) {
+export function PostHeader({ title, image, date, author }: Props) {
   return (
     <>
       <div className="mb-6 text-lg">
@@ -19,7 +19,7 @@ export function PostHeader({ title, coverImage, date, author }: Props) {
       </div>
       <PostTitle>{title}</PostTitle>
       <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} />
+        <Image title={title} src={image} />
       </div>
     </>
   );

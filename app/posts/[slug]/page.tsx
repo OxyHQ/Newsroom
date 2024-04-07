@@ -39,7 +39,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
         <article className="mb-32">
           <PostHeader
             title={post?.title}
-            coverImage={post?.image}
+            image={post?.image}
             date={post?.date.default}
             author={post?.author}
           />
