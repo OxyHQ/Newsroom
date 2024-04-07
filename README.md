@@ -42,3 +42,9 @@ Your feedback and contributions are welcome!
 You can deploy this project on Vercel by clicking the button below:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/PeableOfficial/Newsroom)
+
+## Sponsor this project
+
+If you like this project, please consider sponsoring it. Your sponsorship will help support the development of this project and other projects like it.
+
+[![Sponsor this project](https://img.shields.io/badge/Sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/PeableOfficial)
