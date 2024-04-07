@@ -2,6 +2,7 @@ import { type Author } from "./author";
 
 type Date = {
   default: string;
+  formatted: string;
 };
 
 export type Post = {
