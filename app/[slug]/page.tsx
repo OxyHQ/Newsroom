@@ -7,6 +7,7 @@ import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import { describe } from "node:test";
 
 async function getData(slug: string) {
   const res = await fetch(
@@ -57,7 +58,8 @@ type Params = {
 
 export function generateMetadata({ params }: Params): Metadata {
   const post = {
-    title: "Next.js Blog Example with Markdown",
+    title: "Peable Newsroom",
+    content: "The latest news from Peable.",
     ogImage: {
       url: "",
     },
@@ -67,10 +69,11 @@ export function generateMetadata({ params }: Params): Metadata {
     return notFound();
   }
 
-  const title = `${post.title} | Next.js Blog Example with`;
+  const title = `${post.title} | Peable Newsroom`;
 
   return {
     title,
+    description: post.content ? post.content.slice(0, 100) + "..." : "",
     openGraph: {
       title,
       images: [post.ogImage.url],
