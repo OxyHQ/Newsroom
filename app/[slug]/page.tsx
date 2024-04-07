@@ -19,15 +19,19 @@ async function getData(slug: string) {
 export const metadata: Metadata = {
   title: "",
   description: "",
-  openGraph: {
-    images: [""],
-  },
+  openGraph: {},
 };
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData(params.slug);
 
   metadata.title = data?.title + " - Peable Newsroom" || "Peable Newsroom";
+
+  // Ensure that metadata.openGraph is an object before assigning the images property
+  if (!metadata.openGraph) {
+    metadata.openGraph = {};
+  }
+
   metadata.openGraph.images = [
     {
       url: data.image,
