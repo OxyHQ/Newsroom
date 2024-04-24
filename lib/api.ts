@@ -3,23 +3,10 @@ import { Post } from "@/interfaces/post";
 // Function to get post slugs
 export async function getPosts(): Promise<Post[]> {
   // Fetch the post slugs from the API
-  const now = new Date();
-  const timeUntilMinutes = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate(),
-    now.getHours(),
-    now.getMinutes()
-  );
+  const uniqueTime = new Date().getTime();
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/posts/?t=${timeUntilMinutes.getTime()}`,
-    {
-      headers: {
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-        Expires: "0",
-      },
-    }
+    `https://peable-website-notion-server.vercel.app/api/blog/posts/?nocache=${uniqueTime}`,
+    { cache: "no-store" }
   );
   const posts = await res.json();
   return posts;
@@ -27,24 +14,11 @@ export async function getPosts(): Promise<Post[]> {
 
 // Function to get post by slug
 export async function getPostBySlug(slug: string): Promise<Post> {
-  const now = new Date();
-  const timeUntilMinutes = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate(),
-    now.getHours(),
-    now.getMinutes()
-  );
+  const uniqueTime = new Date().getTime();
   // Fetch the post data from the API
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${timeUntilMinutes.getTime()}`,
-    {
-      headers: {
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-        Expires: "0",
-      },
-    }
+    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?nocache=${uniqueTime}`,
+    { cache: "no-store" }
   );
   const postData = await res.json();
   return postData;
