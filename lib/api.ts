@@ -12,7 +12,14 @@ export async function getPosts(): Promise<Post[]> {
     now.getMinutes()
   );
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/posts/?t=${timeUntilMinutes.getTime()}`
+    `https://peable-website-notion-server.vercel.app/api/blog/posts/?t=${timeUntilMinutes.getTime()}`,
+    {
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    }
   );
   const posts = await res.json();
   return posts;
@@ -30,7 +37,14 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   );
   // Fetch the post data from the API
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${timeUntilMinutes.getTime()}`
+    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${timeUntilMinutes.getTime()}`,
+    {
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    }
   );
   const postData = await res.json();
   return postData;

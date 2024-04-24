@@ -11,7 +11,14 @@ import { describe } from "node:test";
 
 async function getData(slug: string) {
   const res = await fetch(
-    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${new Date().getTime()}`
+    `https://peable-website-notion-server.vercel.app/api/blog/post/${slug}?t=${new Date().getTime()}`,
+    {
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    }
   );
 
   if (!res.ok) {
